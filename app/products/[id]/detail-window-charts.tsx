@@ -26,10 +26,11 @@ function sparklinePath(values: number[]) {
 
 export function DetailWindowCharts({ checks }: { checks: Check[] }) {
   const [w, setW] = useState<W>("7d");
+  const [nowTs] = useState(() => Date.now());
   const filtered = useMemo(() => {
-    const cutoff = Date.now() - MS[w];
+    const cutoff = nowTs - MS[w];
     return checks.filter((c) => new Date(c.checked_at).getTime() >= cutoff).slice().reverse();
-  }, [checks, w]);
+  }, [checks, w, nowTs]);
 
   const values = filtered.map((c) => c.price);
   const currency = filtered[0]?.currency ?? checks[0]?.currency ?? "COP";

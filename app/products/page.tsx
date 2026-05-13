@@ -4,6 +4,9 @@ import { ProductForm } from "@/app/product-form";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function ProductsPage() {
   const { data } = await supabase
     .from("tracked_products")

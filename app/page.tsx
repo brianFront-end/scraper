@@ -4,6 +4,9 @@ import { DashboardProductsClient } from "./dashboard-products-client";
 import { MetricsWindowPanel } from "./metrics-window-panel";
 import { supabase } from "@/lib/supabase";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 type Product = {
   id: string;
   name: string;

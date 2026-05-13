@@ -18,10 +18,10 @@ const WINDOW_MS: Record<WindowKey, number> = {
 
 export function MetricsWindowPanel({ products }: { products: Product[] }) {
   const [windowKey, setWindowKey] = useState<WindowKey>("7d");
+  const [nowTs] = useState(() => Date.now());
 
   const analytics = useMemo(() => {
-    const now = Date.now();
-    const cutoff = now - WINDOW_MS[windowKey];
+    const cutoff = nowTs - WINDOW_MS[windowKey];
 
     const filteredByProduct = products.map((p) => {
       const checks = (p.price_checks ?? []).filter((c) => new Date(c.checked_at).getTime() >= cutoff);
@@ -55,7 +55,7 @@ export function MetricsWindowPanel({ products }: { products: Product[] }) {
       .slice(0, 5);
 
     return { avgVolatility, topDrops };
-  }, [products, windowKey]);
+  }, [products, windowKey, nowTs]);
 
   return (
     <div className="mt-3 grid gap-3 md:grid-cols-2">

@@ -4,6 +4,9 @@ import { ModuleShell } from "@/app/module-shell";
 import { ProductActions } from "@/app/product-actions";
 import { supabase } from "@/lib/supabase";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 function sparklinePath(values: number[]) {
   if (values.length < 2) return "M0 32 L100 32";
   const min = Math.min(...values);

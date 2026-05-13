@@ -4,6 +4,9 @@ import { ComparisonManager } from "./comparison-manager";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 type Row = {
   canonical_product_id: string;
   canonical_name: string;
