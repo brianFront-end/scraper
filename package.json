@@ -4,14 +4,21 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "inngest:dev": "npx inngest-cli@latest dev -u http://localhost:3001/api/inngest",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.105.4",
+    "cheerio": "^1.2.0",
+    "inngest": "^4.4.0",
     "next": "16.2.6",
+    "playwright": "^1.60.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "resend": "^6.12.3",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
