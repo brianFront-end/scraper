@@ -282,7 +282,7 @@ export function ConsoleShell({ children }: { children: React.ReactNode }) {
       </button>
 
       {openChatBubble ? (
-        <div className="terminal-log fixed bottom-20 right-3 z-50 w-[min(92vw,360px)] rounded-2xl p-3 text-xs">
+        <div className="terminal-log fixed bottom-20 right-3 z-50 w-[min(92vw,360px)] rounded-2xl bg-zinc-950 p-3 text-xs">
           <p className="mb-2 text-cyan-300">[ ai::assistant ]</p>
           <form
             onSubmit={async (e) => {
